@@ -5,16 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Getter
-@Table(name = "member_credentials")
 @Entity
 @NoArgsConstructor
+@Table(name = "member_credentials")
 public class MemberCredential {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_uuid")
-    private Long uuid;
+    private UUID uuid = UUID.randomUUID();
 
     @Column(unique = true)
     private String email;
@@ -25,5 +25,6 @@ public class MemberCredential {
     public MemberCredential(String email, String password) {
         this.email = email;
         this.password = password;
+        this.uuid = UUID.randomUUID();
     }
 }

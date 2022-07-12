@@ -1,4 +1,4 @@
-package com.knet.chatsecurity.global.auth.provider;
+package com.knet.chatsecurity.global.auth.manager.provider;
 
 import com.knet.chatsecurity.global.auth.Role;
 import com.knet.chatsecurity.global.auth.token.AjaxAuthenticationToken;

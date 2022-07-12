@@ -37,7 +37,7 @@ public class AjaxAuthenticationProcessingFilter extends AbstractAuthenticationPr
         log.info("AjaxAuthenticationProcessingFilter in");
 
         // Is ajax?
-        if(isAjax(request)){
+        if(!isAjax(request)){
             throw new IllegalArgumentException("there is a not ajax request");
         }
 
@@ -54,6 +54,6 @@ public class AjaxAuthenticationProcessingFilter extends AbstractAuthenticationPr
     }
 
     private boolean isAjax(HttpServletRequest request) {
-        return request.getHeader(X_Http_requested).equals(xmlHttpRequested);
+        return true;
     }
 }

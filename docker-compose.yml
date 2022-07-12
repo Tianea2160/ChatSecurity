@@ -11,3 +11,15 @@ services:
       MYSQL_DATABASE: memberDB
       MYSQL_USER: hello
       MYSQL_PASSWORD: world
+
+  redis:
+    image: redis:alpine
+    command: redis-server --port 6379
+    container_name: sessionDB
+    hostname: redis_boot
+    labels:
+      - "name=redis"
+      - "mode=standalone"
+    ports:
+      - "6379:6379"
+    restart: always
