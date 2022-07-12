@@ -10,15 +10,21 @@ import java.util.UUID;
 @Getter
 @Entity
 @NoArgsConstructor
-@Table(name = "member_credentials")
+@Table(name = "member_credential")
 public class MemberCredential {
+
     @Id
-    @Column(name = "member_uuid")
+    @Column(name = "member_credential_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "member_uuid", unique = true)
     private UUID uuid = UUID.randomUUID();
 
-    @Column(unique = true)
+    @Column(unique = true, name = "email")
     private String email;
 
+    @Column(name = "password")
     private String password;
 
     @Builder

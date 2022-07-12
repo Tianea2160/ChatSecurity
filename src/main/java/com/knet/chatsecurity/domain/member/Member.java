@@ -8,10 +8,11 @@ import java.time.LocalDateTime;
 
 @Getter
 @Entity
-@Table(name = "members")
+@Table(name = "member")
 @NoArgsConstructor
 public class Member extends TimeField {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id")
     private Long id;
 
     @Column(name = "member_name")
@@ -21,6 +22,7 @@ public class Member extends TimeField {
     private String nickname;
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="member_uuid")
     private MemberCredential memberCredential;
 
     @Builder
